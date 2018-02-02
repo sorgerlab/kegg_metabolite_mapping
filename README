@@ -1,0 +1,18 @@
+Setup
+=====
+
+Download the "All Metabolites" file from HMDB at http://www.hmdb.ca/downloads .
+Unzip it into the `input` directory to obtain `hmdb_metabolites.xml` (1.6GB).
+
+
+Usage
+=====
+
+python map_metabolites.py input.csv > output.csv
+
+
+Notes
+=====
+
+This script takes over 4GB of RAM to parse the XML file, even with aggressive
+freeing of unused lxml tree elements. This needs to be addressed.
