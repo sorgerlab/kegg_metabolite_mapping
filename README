@@ -1,3 +1,11 @@
+Introduction
+============
+
+This tools maps metabolite names from a CSV file in a format produced by a
+particular assay and tries to map them to KEGG Compound IDs via the Human
+Metabolite Database and some further manual curation.
+
+
 Setup
 =====
 
@@ -8,11 +16,5 @@ Unzip it into the `input` directory to obtain `hmdb_metabolites.xml` (1.6GB).
 Usage
 =====
 
-python map_metabolites.py input.csv > output.csv
+python map_metabolites.py input/data.csv > output/mapping.csv
 
-
-Notes
-=====
-
-This script takes over 4GB of RAM to parse the XML file, even with aggressive
-freeing of unused lxml tree elements. This needs to be addressed.

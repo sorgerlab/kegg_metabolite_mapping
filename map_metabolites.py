@@ -3,8 +3,6 @@ import re
 import sys
 import lxml.etree
 import pandas as pd
-import itertools
-import gc
 
 
 def main(argv=sys.argv):
@@ -50,11 +48,7 @@ def main(argv=sys.argv):
         hmdb_ids += [hmdb_id] * n_names
         kegg_ids += [kegg_id] * n_names
         names += [name] + [e.text for e in synonym_elts]
-        # Aggressively free element references. Something still ends up holding
-        # onto a LOT of memory but I can't track it down.
         m_elt.clear()
-        #while m_elt.getprevious() is not None:
-        #    del m_elt.getparent()[0]
     hmdb = pd.DataFrame(
         {'hmdb_id': hmdb_ids, 'kegg_id': kegg_ids, 'name': names}
     )
